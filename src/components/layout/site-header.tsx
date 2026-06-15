@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 const navLinks = [
   { href: "#work", label: "Work" },
@@ -15,14 +16,14 @@ export function SiteHeader() {
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-md"
+      className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/70 backdrop-blur-md"
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="flex h-16 items-center justify-between app_container">
         <Link
           href="/"
           className="text-sm font-semibold tracking-[0.2em] text-foreground uppercase"
         >
-          Nadim
+          Nad1m-A-A
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -47,14 +48,18 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <motion.a
-          href="#contact"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-          className="rounded-full border border-white/10 px-4 py-2 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/10"
-        >
-          Let&apos;s talk
-        </motion.a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="rounded-full border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/10"
+          >
+            Let&apos;s talk
+          </motion.a>
+        </div>
       </div>
     </motion.header>
   );

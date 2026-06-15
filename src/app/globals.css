@@ -1,12 +1,27 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #070708;
-  --foreground: #f4f4f5;
-  --muted: #a1a1aa;
-  --surface: #111113;
-  --accent: #8b5cf6;
-  --accent-secondary: #22d3ee;
+  --background: #fff5f5;
+  --foreground: #450a0a;
+  --muted: #b91c1c;
+  --surface: #fee2e2;
+  --accent: #dc2626;
+  --accent-secondary: #f87171;
+  --hero-surface: #fde4e4;
+  --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+
+.dark {
+  --background: #0a0404;
+  --foreground: #fecaca;
+  --muted: #fca5a5;
+  --surface: #1c1010;
+  --accent: #f87171;
+  --accent-secondary: #ef4444;
+  --hero-surface: #1a0c0c;
+  --border: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
 @theme inline {
@@ -16,6 +31,8 @@
   --color-surface: var(--surface);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent-secondary);
+  --color-hero-surface: var(--hero-surface);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -33,4 +50,10 @@ body {
 ::selection {
   background: color-mix(in oklab, var(--accent) 35%, transparent);
   color: var(--foreground);
+}
+
+@layer utilities {
+  .app_container {
+    @apply mx-auto max-w-7xl px-6;
+  }
 }

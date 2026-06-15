@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { motion } from "motion/react";
 import { gsap, useGSAP } from "@/lib/gsap/register";
+import { HeroStackVisual } from "@/components/sections/hero-stack-visual";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -34,53 +34,33 @@ export function HeroSection() {
       ref={containerRef}
       className="relative flex min-h-screen items-center px-6 pt-24 pb-20"
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
-        <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-accent-secondary/10 blur-3xl" />
-      </div>
+      <div className="relative mx-auto min-h-[calc(100vh-9rem)] w-full rounded-4xl bg-hero-surface p-6 text-foreground sm:p-10 border border-border">
+        <div className="app_container grid min-h-[calc(100vh-13rem)] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="space-y-6">
+            <h1
+              data-hero-animate
+              className="text-4xl font-thin tracking-widest sm:text-4xl text-foreground"
+            >
+              The Name is{" "}
+              <span className="text-accent font-medium font-mono tracking-wide">{"${Nadim}"}</span>
 
-      <div className="relative mx-auto w-full max-w-6xl">
-        <p
-          data-hero-animate
-          className="mb-4 text-sm tracking-[0.35em] text-accent uppercase"
-        >
-          Portfolio
-        </p>
+            </h1>
+            <div
+              data-hero-animate
+              className="space-y-2 text-5xl font-medium italic -ms-2 tracking-wide sm:space-y-4 sm:text-7xl lg:text-8xl text-foreground"
+            >
+              <p>Self-taught</p>
+              <p>Full-stack</p>
+              <p>Web-Dev</p>
+            </div>
+          </div>
 
-        <h1
-          data-hero-animate
-          className="max-w-4xl text-5xl leading-[1.05] font-semibold tracking-tight text-foreground sm:text-7xl"
-        >
-          Crafting digital experiences with motion, precision, and intent.
-        </h1>
+          <HeroStackVisual />
+        </div>
 
-        <p
-          data-hero-animate
-          className="mt-8 max-w-2xl text-lg leading-8 text-muted"
-        >
-          I&apos;m Nadim — a developer focused on polished interfaces, smooth
-          interactions, and reliable web products. This site is your starting
-          point for projects, process, and contact.
-        </p>
-
-        <div data-hero-animate className="mt-10 flex flex-wrap gap-4">
-          <motion.a
-            href="#work"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-background transition-colors hover:bg-accent/90"
-          >
-            View selected work
-          </motion.a>
-
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex h-12 items-center justify-center rounded-full border border-white/10 px-6 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-white/5"
-          >
-            Get in touch
-          </motion.a>
+        <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-4xl">
+          <div className="absolute top-1/4 -left-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
+          <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-accent-secondary/10 blur-3xl" />
         </div>
       </div>
     </section>
