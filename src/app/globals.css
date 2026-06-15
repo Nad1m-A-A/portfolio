@@ -3,25 +3,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fff5f5;
-  --foreground: #450a0a;
-  --muted: #b91c1c;
-  --surface: #fee2e2;
-  --accent: #dc2626;
-  --accent-secondary: #f87171;
-  --hero-surface: #fde4e4;
+  --background: #fffdf8;
+  --foreground: #3d3929;
+  --muted: #8a8278;
+  --surface: #f7f3eb;
+  --accent: #9a7b4f;
+  --accent-secondary: #c4b5a0;
+  --hero-surface: #f5efe6;
   --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --hero-grid-line: color-mix(in oklab, var(--foreground) 38%, transparent);
+  --hero-grid-opacity: 0.7;
 }
 
 .dark {
-  --background: #0a0404;
-  --foreground: #fecaca;
-  --muted: #fca5a5;
-  --surface: #1c1010;
-  --accent: #f87171;
-  --accent-secondary: #ef4444;
-  --hero-surface: #1a0c0c;
+  --background: #1a1814;
+  --foreground: #f5f0e8;
+  --muted: #a8a29e;
+  --surface: #292524;
+  --accent: #d4a574;
+  --accent-secondary: #c9a87c;
+  --hero-surface: #231f1b;
   --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --hero-grid-line: color-mix(in oklab, var(--foreground) 48%, transparent);
+  --hero-grid-opacity: 0.65;
 }
 
 @theme inline {
@@ -55,5 +59,25 @@ body {
 @layer utilities {
   .app_container {
     @apply mx-auto max-w-7xl px-6;
+  }
+
+  .hero-grid-overlay {
+    background-image:
+      linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px);
+    background-size: 58px 58px;
+    opacity: var(--hero-grid-opacity);
+    -webkit-mask-image:
+      radial-gradient(ellipse 75% 75% at 50% 50%,
+        black 25%,
+        transparent 70%),
+      linear-gradient(to bottom, transparent 0%, black 22%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      radial-gradient(ellipse 75% 75% at 50% 50%,
+        black 25%,
+        transparent 70%),
+      linear-gradient(to bottom, transparent 0%, black 22%);
+    mask-composite: intersect;
   }
 }

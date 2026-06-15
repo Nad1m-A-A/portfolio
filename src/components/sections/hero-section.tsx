@@ -32,11 +32,13 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-screen items-center px-6 pt-24 pb-20"
+      className="flex min-h-screen items-center"
     >
-      <div className="relative mx-auto min-h-[calc(100vh-9rem)] w-full rounded-4xl bg-hero-surface p-6 text-foreground sm:p-10 border border-border">
-        <div className="app_container grid min-h-[calc(100vh-13rem)] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="space-y-6">
+      <div className="relative overflow-hidden mx-auto h-screen w-full bg-hero-surface">
+
+        <div className="h-full app_container grid min-h-[calc(100vh-13rem)] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="relative z-10 space-y-6">
+
             <h1
               data-hero-animate
               className="text-4xl font-thin tracking-widest sm:text-4xl text-foreground"
@@ -55,13 +57,24 @@ export function HeroSection() {
             </div>
           </div>
 
-          <HeroStackVisual />
+          <div className="relative ">
+            {/* //! Grid Overlay */}
+            <div
+              className="hero-grid-overlay scale-125 pointer-events-none absolute inset-0"
+              aria-hidden
+            />
+            {/* //! Grid Overlay */}
+            {/* //! Stack Visual */}
+            <HeroStackVisual />
+            {/* //! Stack Visual */}
+          </div>
         </div>
 
-        <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-4xl">
+        {/* //! Glow */}
+        {/* <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-4xl">
           <div className="absolute top-1/4 -left-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
           <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-accent-secondary/10 blur-3xl" />
-        </div>
+        </div> */}
       </div>
     </section>
   );
