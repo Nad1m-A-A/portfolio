@@ -40,7 +40,7 @@ export function HeroSection() {
             className="relative pt-4 sm:pt-6 lg:pt-0"
           >
             <div
-              className="hero-grid-overlay pointer-events-none absolute inset-0 scale-125"
+              className="hero-grid-overlay pointer-events-none absolute size-[150%] -top-1/4 -left-1/4"
               aria-hidden
             />
             <HeroStackVisual />
