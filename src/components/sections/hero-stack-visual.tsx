@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
 import {
   InertiaLogo,
   LaravelLogo,
@@ -8,43 +5,27 @@ import {
 } from "@/components/icons/tech-logos";
 
 const stackItems = [
-  {
-    label: "React",
-    Logo: ReactLogo,
-    className:
-      "left-1/2 top-[20%] z-10 -translate-x-1/2 -translate-y-1/2",
-  },
-  {
-    label: "Laravel",
-    Logo: LaravelLogo,
-    className:
-      "left-1/2 top-[50%] z-10 -translate-x-1/2 -translate-y-1/2",
-  },
-  {
-    label: "Inertia.js",
-    Logo: InertiaLogo,
-    className:
-      "left-1/2 top-[80%] z-10 -translate-x-1/2 -translate-y-1/2",
-  },
+  { label: "React", Logo: ReactLogo },
+  { label: "Laravel", Logo: LaravelLogo },
+  { label: "Inertia.js", Logo: InertiaLogo },
 ] as const;
 
 export function HeroStackVisual() {
   return (
-    <div
-      data-hero-animate
-      className="relative mx-auto max-w-sm aspect-square"
-    >
-      {stackItems.map(({ label, Logo, className }) => (
-        <motion.div
+    <div className="mx-auto flex max-w-sm flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-10">
+      {stackItems.map(({ label, Logo }) => (
+        <div
           key={label}
-          className={`absolute ${className}`}
-          transition={{ type: "spring", stiffness: 400, damping: 20 }}
+          className="grid grid-cols-2 items-center justify-center gap-2 sm:gap-3"
         >
-          <div className="flex size-20 items-center justify-center rounded-full border border-border bg-background p-2 shadow-lg backdrop-blur-sm">
+          <div className="flex size-14 items-center justify-center rounded-full border border-border bg-background p-2 shadow-lg backdrop-blur-sm sm:size-16 md:size-18 lg:size-20">
             <Logo className="size-[70%]" />
             <span className="sr-only">{label}</span>
           </div>
-        </motion.div>
+          <p className="rounded-full border border-border bg-white/10 px-4 py-1 text-center text-xs italic backdrop-blur-lg sm:px-5 sm:text-sm md:px-6 md:text-base">
+            {label}
+          </p>
+        </div>
       ))}
     </div>
   );
