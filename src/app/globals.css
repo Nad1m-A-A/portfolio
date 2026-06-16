@@ -63,9 +63,9 @@ body {
 
   .hero-grid-overlay {
     background-image:
-      linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
+      /* linear-gradient(var(--hero-grid-line) 1px, transparent 1px), */
       linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px);
-    background-size: 58px 58px;
+    background-size: 20px 20px;
     opacity: var(--hero-grid-opacity);
     -webkit-mask-image:
       radial-gradient(ellipse 75% 75% at 50% 50%,
@@ -74,7 +74,7 @@ body {
       linear-gradient(to bottom, transparent 0%, black 22%);
     -webkit-mask-composite: source-in;
     mask-image:
-      radial-gradient(ellipse 75% 75% at 50% 50%,
+      radial-gradient(ellipse 60% 75% at 50% 50%,
         black 25%,
         transparent 70%),
       linear-gradient(to bottom, transparent 0%, black 22%);

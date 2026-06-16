@@ -5,24 +5,26 @@ import {
 } from "@/components/icons/tech-logos";
 
 const stackItems = [
-  { label: "React", Logo: ReactLogo },
-  { label: "Laravel", Logo: LaravelLogo },
-  { label: "Inertia.js", Logo: InertiaLogo },
+  { label: "REACT", Logo: ReactLogo, textColor: "#7bcff3" },
+  { label: "LARAVEL", Logo: LaravelLogo, textColor: "#c7351b" },
+  { label: "INERTIA.JS", Logo: InertiaLogo, textColor: "#934ee7" },
 ] as const;
 
 export function HeroStackVisual() {
   return (
-    <div className="mx-auto flex max-w-sm flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-10">
-      {stackItems.map(({ label, Logo }) => (
+    <div className="relative z-10 mx-auto flex max-w-sm flex-col items-start w-fit gap-8">
+      {stackItems.map(({ label, Logo, textColor }) => (
         <div
           key={label}
-          className="grid grid-cols-2 items-center justify-center gap-2 sm:gap-3"
+          className="grid grid-cols-[1fr_auto] items-center justify-center gap-1"
         >
-          <div className="flex size-14 items-center justify-center rounded-full border border-accent/40 bg-accent/10 p-2 shadow-lg backdrop-blur-sm sm:size-16 md:size-18 lg:size-20">
-            <Logo className="size-[70%] grayscale-50" />
+          <div className="flex items-center justify-center rounded-full bg-hero-surface p-4 size-18 md:size-20 lg:size-22">
+            <Logo className={`size-[70%] ${label === "LARAVEL" ? "grayscale invert" : "grayscale"}`} />
             <span className="sr-only">{label}</span>
           </div>
-          <p className="rounded-full border border-accent/40 bg-accent/10 px-4 py-1 text-center text-xs italic backdrop-blur-lg sm:px-5 sm:text-sm md:px-6 md:text-base">
+          <p
+            style={{ color: textColor }}
+            className="rounded-full tracking-wider bg-hero-surface text-foreground select-none py-1 px-4 text-center text-xs sm:text-sm md:text-base">
             {label}
           </p>
         </div>
