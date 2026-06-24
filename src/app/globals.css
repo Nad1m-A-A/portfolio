@@ -24,6 +24,7 @@
   --accent-secondary: #c9a87c;
   --hero-surface: #231f1b;
   --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  /* --hero-grid-line: color-mix(in oklab, var(--foreground) 48%, transparent); */
   --hero-grid-line: color-mix(in oklab, var(--foreground) 48%, transparent);
   --hero-grid-opacity: 0.65;
 }
@@ -63,7 +64,7 @@ body {
 
   .hero-grid-overlay {
     background-image:
-      /* linear-gradient(var(--hero-grid-line) 1px, transparent 1px), */
+      linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
       linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px);
     background-size: 20px 20px;
     opacity: var(--hero-grid-opacity);
@@ -79,5 +80,14 @@ body {
         transparent 70%),
       linear-gradient(to bottom, transparent 0%, black 22%);
     mask-composite: intersect;
+  }
+
+  .hero-perspective-grid-plane {
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to top, black 55%, transparent 100%);
+    mask-image: linear-gradient(to top, black 55%, transparent 100%);
   }
 }
