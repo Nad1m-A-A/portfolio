@@ -44,7 +44,7 @@ export default function RootLayout({
         >
 
           <div className="p-4 relative overflow-hidden">
-            <main className="flex-1 flex flex-col rounded-lg h-[95vh] max-w-6xl mx-auto overflow-y-auto scrollbar-none scrollbar-track-gray-100 bg-white/50 backdrop-blur relative shadow-[inset_0_0_100px_rgba(0,0,0,0.1),0_0_10px_rgba(0,0,0,0.1)] border border-white/20">
+            <main className="flex-1 flex flex-col rounded-lg h-[95vh] max-w-6xl mx-auto overflow-y-auto scrollbar-none scrollbar-track-gray-100 bg-white/50 backdrop-blur-lg backdrop-saturate-200 backdrop-contrast-200 relative shadow-[inset_0_0_100px_rgba(0,0,0,0.1),0_0_10px_rgba(0,0,0,0.1)] border border-white/20">
               <SiteHeader />
               {children}
               {/* {children} */}
