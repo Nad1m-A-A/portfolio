@@ -23,7 +23,7 @@ const stackItems = [
 export function HeroStackVisual() {
   return (
     <div className="relative z-10 w-full border-y border-border">
-      <div className="grid grid-cols-3 divide-x divide-y divide-border md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 divide-x divide-y divide-border md:grid-cols-4">
         {stackItems.map(({ label, Logo }) => (
           <div
             key={label}

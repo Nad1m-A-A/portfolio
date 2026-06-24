@@ -1,10 +1,13 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { PlaceholderSection } from "@/components/sections/placeholder-section";
+import { WorkingOnSection } from "@/components/sections/working-on-section";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+
+      <WorkingOnSection />
 
       {/* <PlaceholderSection
         id="work"

@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
+import { HeroPerspectiveGrid } from "@/components/sections/hero-perspective-grid";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
         >
 
           <div className="p-4 relative overflow-hidden">
+        <HeroPerspectiveGrid />
             <main
               className="flex-1 flex flex-col rounded-lg h-[95vh] max-w-6xl mx-auto overflow-y-auto scrollbar-none scrollbar-track-gray-100 bg-background backdrop-blur-lg backdrop-saturate-200 backdrop-contrast-200 relative border border-white/20"
               style={{
