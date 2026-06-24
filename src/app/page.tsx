@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <HeroSection />
 
-      <PlaceholderSection
+      {/* <PlaceholderSection
         id="work"
         eyebrow="Work"
         title="Selected projects coming soon"
@@ -25,7 +25,7 @@ export default function Home() {
         eyebrow="Contact"
         title="Open to new opportunities"
         description="Add your email, social links, or a contact form here. A simple mailto link or Cal.com embed is enough to start."
-      />
+      /> */}
     </>
   );
 }

@@ -16,12 +16,12 @@ export function SiteHeader() {
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/70 backdrop-blur-md"
+      className="sticky top-0 z-50 border-b border-white bg-red-500"
     >
-      <div className="flex h-16 items-center justify-between app_container">
+      <div className="flex h-16 items-center justify-between px-10">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-[0.2em] text-foreground uppercase"
+          className="text-sm font-semibold tracking-[0.2em] text-white uppercase"
         >
           Nad1m-A-A
         </Link>
@@ -40,7 +40,7 @@ export function SiteHeader() {
             >
               <Link
                 href={link.href}
-                className="text-sm text-muted transition-colors hover:text-foreground"
+                className="text-sm text-white transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -55,7 +55,7 @@ export function SiteHeader() {
             href="#contact"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="rounded-full border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/10"
+            className="rounded-full border border-border px-4 py-2 text-sm text-white transition-colors hover:border-accent/40 hover:bg-accent/10"
           >
             Let&apos;s talk
           </motion.a>

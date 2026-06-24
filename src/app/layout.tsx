@@ -42,9 +42,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
+
+          <div className="p-4">
+              {/* <SiteHeader /> */}
+            <main className="flex-1 rounded-lg h-[95vh] max-w-6xl mx-auto overflow-y-auto scrollbar-none scrollbar-track-gray-100 bg-white/50 backdrop-blur relative shadow-[inset_0_0_100px_rgba(0,0,0,0.1),0_0_10px_rgba(0,0,0,0.1)] border border-white/20">
+              {children}
+              {children}
+            </main>
+            <div className="size-50 absolute top-60 left-20 bg-red-500 rounded-full -translate-y-1/2 -z-10" />
+            <div className="size-50 absolute top-150 right-20 bg-red-500 rounded-full -translate-y-1/2 -z-10" />
+            {/* <SiteFooter /> */}
+          </div>
+
         </ThemeProvider>
       </body>
     </html>
