@@ -1,5 +1,14 @@
 import type { IconBaseProps } from "react-icons";
-import { SiInertia, SiLaravel, SiReact } from "react-icons/si";
+import { LuInfinity } from "react-icons/lu";
+import {
+  SiDocker,
+  SiGit,
+  SiInertia,
+  SiLaravel,
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+} from "react-icons/si";
 
 type LogoProps = IconBaseProps;
 
@@ -13,4 +22,24 @@ export function LaravelLogo(props: LogoProps) {
 
 export function InertiaLogo(props: LogoProps) {
   return <SiInertia aria-label="Inertia.js" color="#9553E9" {...props} />;
+}
+
+export function NextjsLogo(props: LogoProps) {
+  return <SiNextdotjs aria-label="Next.js" color="#000000" {...props} />;
+}
+
+export function TypescriptLogo(props: LogoProps) {
+  return <SiTypescript aria-label="TypeScript" color="#3178C6" {...props} />;
+}
+
+export function DockerLogo(props: LogoProps) {
+  return <SiDocker aria-label="Docker" color="#2496ED" {...props} />;
+}
+
+export function GitLogo(props: LogoProps) {
+  return <SiGit aria-label="Git" color="#F05032" {...props} />;
+}
+
+export function CicdLogo(props: LogoProps) {
+  return <LuInfinity aria-label="CI/CD" color="currentColor" {...props} />;
 }

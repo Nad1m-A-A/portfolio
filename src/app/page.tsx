@@ -1,12 +1,15 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { PlaceholderSection } from "@/components/sections/placeholder-section";
+import { WorkingOnSection } from "@/components/sections/working-on-section";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
 
-      <PlaceholderSection
+      <WorkingOnSection />
+
+      {/* <PlaceholderSection
         id="work"
         eyebrow="Work"
         title="Selected projects coming soon"
@@ -25,7 +28,7 @@ export default function Home() {
         eyebrow="Contact"
         title="Open to new opportunities"
         description="Add your email, social links, or a contact form here. A simple mailto link or Cal.com embed is enough to start."
-      />
+      /> */}
     </>
   );
 }
