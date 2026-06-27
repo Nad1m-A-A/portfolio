@@ -28,7 +28,7 @@ export function SiteHeader() {
           href="/"
           className={`${logoFont.className} italic`}
         >
-          Nadim Alaa - <span className={`${arabicFont.className}`}>نديم علاء</span>
+          Nadim Alaa ^ <span className={`${arabicFont.className}`}>نديم علاء</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
