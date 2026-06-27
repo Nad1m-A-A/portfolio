@@ -1,19 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { SiteShell } from "@/components/layout/site-shell";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 import { HeroPerspectiveGrid } from "@/components/sections/hero-perspective-grid";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { appFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -36,7 +26,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${appFont.className} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <ThemeProvider
