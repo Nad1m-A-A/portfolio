@@ -49,7 +49,7 @@ export function SiteHeader() {
                   event.preventDefault();
                   navigateToHash(link.href);
                 }}
-                className={`border-b pb-1 text-xs tracking-[0.2em] transition-[color,border-color] hover:text-foreground ${activeHash === link.href
+                className={`border-b pb-1 px-1 transition-[color,border-color] hover:text-foreground ${activeHash === link.href
                   ? "border-accent text-foreground"
                   : "border-transparent text-muted"
                   }`}
@@ -60,21 +60,17 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-6">
           <ThemeToggle />
 
-          <motion.a
-            href="#contact"
-            onClick={(event) => {
-              event.preventDefault();
-              navigateToHash("#contact");
+          <button
+            onClick={() => {
+              window.open("mailto:nadim.alaa@hotmail.com", "_blank");
             }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-accent/40 hover:bg-accent/10"
+            className="leading-relaxed px-3 py-0.5 pt-1 bg-accent transition-all cursor-pointer text-background rounded-[2px]"
           >
-            Let&apos;s talk
-          </motion.a>
+            Contact
+          </button>
         </div>
       </div>
     </motion.header>

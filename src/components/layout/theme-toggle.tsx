@@ -26,10 +26,8 @@ export function ThemeToggle() {
   return (
     <motion.button
       type="button"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white transition-colors hover:border-accent/40 hover:bg-accent/10"
+      className="inline-flex h-9 w-9 shrink-0 items-center justify-center transition-all cursor-pointer"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? (
@@ -37,7 +35,7 @@ export function ThemeToggle() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke="var(--accent)"
           strokeWidth="1.75"
           className="h-4 w-4"
           aria-hidden
@@ -50,7 +48,7 @@ export function ThemeToggle() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke="var(--accent)"
           strokeWidth="1.75"
           className="h-4 w-4"
           aria-hidden
