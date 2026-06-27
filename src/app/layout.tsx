@@ -55,7 +55,7 @@ export default function RootLayout({
         >
 
           <div className="p-4 relative overflow-hidden">
-        <HeroPerspectiveGrid />
+            <HeroPerspectiveGrid />
             <main
               className="flex-1 flex flex-col rounded-lg h-[95vh] max-w-6xl mx-auto overflow-y-auto scrollbar-none scrollbar-track-gray-100 bg-background backdrop-blur-lg backdrop-saturate-200 backdrop-contrast-200 relative border border-white/20"
               style={{
@@ -64,10 +64,7 @@ export default function RootLayout({
             >
               <SiteHeader />
               {children}
-              {/* {children} */}
             </main>
-            {/* <div className="size-50 absolute top-60 left-20 bg-black rounded-full -translate-y-1/2 -z-10" />
-            <div className="size-50 absolute top-150 right-20 bg-black rounded-full -translate-y-1/2 -z-10" /> */}
             {/* <SiteFooter /> */}
           </div>
 
