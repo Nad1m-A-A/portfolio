@@ -18,9 +18,9 @@ type Faq = {
   id: string;
   question: string;
 } & (
-  | { kind: "list"; items: FocusItem[] }
-  | { kind: "text"; body: string }
-);
+    | { kind: "list"; items: FocusItem[] }
+    | { kind: "text"; body: string }
+  );
 
 const faqs: Faq[] = [
   {
@@ -68,7 +68,7 @@ export function WorkingOnSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0].id);
 
   return (
-    <section id="about" className="scroll-mt-24 px-6 py-20 sm:py-28">
+    <section id="about" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -124,9 +124,8 @@ export function WorkingOnSection() {
                     </span>
                     <LuChevronRight
                       aria-hidden
-                      className={`mt-1 size-5 shrink-0 text-muted transition-transform duration-300 group-hover:text-foreground ${
-                        isOpen ? "rotate-90 text-accent" : ""
-                      }`}
+                      className={`mt-1 size-5 shrink-0 text-muted transition-transform duration-300 group-hover:text-foreground ${isOpen ? "rotate-90 text-accent" : ""
+                        }`}
                     />
                   </button>
                 </h3>

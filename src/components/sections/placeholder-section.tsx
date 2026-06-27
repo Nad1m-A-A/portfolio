@@ -12,7 +12,7 @@ export function PlaceholderSection({
   description,
 }: PlaceholderSectionProps) {
   return (
-    <section id={id} className="scroll-mt-24 px-6 py-24">
+    <section id={id} className="px-6 py-24">
       <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-surface/50 p-10 sm:p-14">
         <p className="text-sm tracking-[0.3em] text-accent uppercase">
           {eyebrow}
