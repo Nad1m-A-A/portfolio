@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { useActiveSection } from "@/hooks/useActiveSection.js";
-import { arabicFont, logoFont } from "@/lib/fonts";
 
 const navLinks = [
   { href: "#intro", label: "Intro" },
@@ -26,7 +25,7 @@ export function SiteHeader() {
       <div className="z-10 flex h-16 items-center justify-between px-10">
         <Link
           href="/"
-          className={`${logoFont.className} text-xl`}
+          className={`text-xl`}
         >
           Nadim Alaa
         </Link>
