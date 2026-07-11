@@ -64,7 +64,7 @@ const faqs: Faq[] = [
   },
 ];
 
-export function WorkingOnSection() {
+export default function WorkingOnSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0].id);
 
   return (

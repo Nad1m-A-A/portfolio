@@ -6,7 +6,7 @@ import { HeroStackVisual } from "@/components/sections/hero-stack-visual";
 
 const heroEase = [0.22, 1, 0.36, 1] as const;
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
     <section id="intro" className="flex flex-col">
       <motion.div
