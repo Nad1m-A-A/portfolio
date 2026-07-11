@@ -58,4 +58,12 @@ body {
   .app_container {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
+
+  .section {
+    @apply px-6 py-20 sm:py-28;
+  }
+
+  .app_container {
+    @apply mx-auto max-w-3xl;
+  }
 }

@@ -68,8 +68,8 @@ export default function WorkingOnSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0].id);
 
   return (
-    <section id="about" className="px-6 py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl">
+    <section id="about" className="section">
+      <div className="app_container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
