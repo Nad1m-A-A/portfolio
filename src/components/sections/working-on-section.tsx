@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { IconType } from "react-icons";
 import { LuChevronRight, LuBot, LuShieldCheck } from "react-icons/lu";
 import { SiDocker, SiGit } from "react-icons/si";
 
 const sectionEase = [0.22, 1, 0.36, 1] as const;
+const HOVER_OPEN_DELAY_MS = 220;
 
 type FocusItem = {
   Icon: IconType;
@@ -66,6 +67,29 @@ const faqs: Faq[] = [
 
 export default function WorkingOnSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0].id);
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearHoverTimeout = () => {
+    if (hoverTimeoutRef.current !== null) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+  };
+
+  useEffect(() => () => clearHoverTimeout(), []);
+
+  const openOnHover = (id: string) => {
+    clearHoverTimeout();
+    hoverTimeoutRef.current = setTimeout(() => {
+      setOpenId(id);
+      hoverTimeoutRef.current = null;
+    }, HOVER_OPEN_DELAY_MS);
+  };
+
+  const openImmediately = (id: string | null) => {
+    clearHoverTimeout();
+    setOpenId(id);
+  };
 
   return (
     <section id="about" className="section">
@@ -76,20 +100,12 @@ export default function WorkingOnSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: sectionEase }}
         >
-          <p className="font-mono text-sm text-accent">
-            <span className="text-muted">$</span> git status
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="border-b border-accent w-fit pb-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             What I&apos;m Up To
           </h2>
-          <p className="mt-3 font-mono text-xs text-muted">
-            On branch{" "}
-            <span className="text-foreground/70">main</span> · changes staged for
-            2027
-          </p>
         </motion.div>
 
-        <div className="mt-10 divide-y divide-border border-y border-border">
+        <div className="divide-y divide-border border-b border-border">
           {faqs.map((faq, index) => {
             const isOpen = openId === faq.id;
             const panelId = `faq-panel-${faq.id}`;
@@ -106,6 +122,8 @@ export default function WorkingOnSection() {
                   ease: sectionEase,
                   delay: index * 0.06,
                 }}
+                onMouseEnter={() => openOnHover(faq.id)}
+                onMouseLeave={clearHoverTimeout}
               >
                 <h3>
                   <button
@@ -113,7 +131,7 @@ export default function WorkingOnSection() {
                     id={buttonId}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    onClick={() => setOpenId(isOpen ? null : faq.id)}
+                    onClick={() => openImmediately(isOpen ? null : faq.id)}
                     className="group flex w-full items-start gap-4 py-5 text-left transition-colors"
                   >
                     <span className="mt-0.5 font-mono text-sm font-semibold text-accent">
@@ -124,7 +142,7 @@ export default function WorkingOnSection() {
                     </span>
                     <LuChevronRight
                       aria-hidden
-                      className={`mt-1 size-5 shrink-0 text-muted transition-transform duration-300 group-hover:text-foreground ${isOpen ? "rotate-90 text-accent" : ""
+                      className={`mt-1 size-5 shrink-0 text-accent transition-transform duration-300 ${isOpen ? "rotate-90 text-accent" : ""
                         }`}
                     />
                   </button>
@@ -142,7 +160,7 @@ export default function WorkingOnSection() {
                       transition={{ duration: 0.35, ease: sectionEase }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 pl-8">
+                      <div className="pb-6">
                         {faq.kind === "text" ? (
                           <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
                             {faq.body}
@@ -152,7 +170,7 @@ export default function WorkingOnSection() {
                             {faq.items.map(({ Icon, title, body }) => (
                               <li
                                 key={title}
-                                className="rounded-2xl border border-border bg-surface/50 p-4 transition-colors hover:border-accent/40"
+                                className="rounded-[2px] border border-border bg-surface/50 p-4 transition-colors hover:border-accent/40"
                               >
                                 <div className="flex items-center gap-2.5">
                                   <Icon
