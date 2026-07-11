@@ -8,6 +8,7 @@ import { useActiveSection } from "@/hooks/useActiveSection.js";
 const navLinks = [
   { href: "#intro", label: "Intro" },
   { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
 ] as const;
 
 const sectionHashes = navLinks.map((link) => link.href);
