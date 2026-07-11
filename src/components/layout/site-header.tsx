@@ -60,7 +60,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-6">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
           <button
             onClick={() => {
