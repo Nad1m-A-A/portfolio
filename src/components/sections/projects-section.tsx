@@ -14,6 +14,29 @@ const highlights = [
     "Fully documented — bilingual user guide and in-app developer guide for contributors",
 ] as const;
 
+const oldProjects = [
+    {
+        name: "Carne Media Training Center",
+        url: "https://carnemedia.ae/en",
+        src: "/carne.png",
+    },
+    {
+        name: "American Aesthetic Medical Center",
+        url: "https://americanaestheticmc.com",
+        src: "/american.webp",
+    },
+    {
+        name: "Arya Clinic",
+        url: "https://aryaclinic.ae",
+        src: "/arya.webp",
+    },
+    {
+        name: "Abd-Albaset Bali Architecture",
+        url: "https://www.designerab.com/",
+        src: "/architect.webp",
+    },
+] as const;
+
 export default function ProjectsSection() {
     return (
         <section id="projects" className="section pt-0!">
@@ -37,7 +60,6 @@ export default function ProjectsSection() {
                     className="mt-10 space-y-6"
                 >
                     <Image
-                        // src="/Screenshot 2026-07-11 030728.png"
                         src="/dashboards.png"
                         alt="Multi-Business Analytics Dashboard"
                         width={1200}
@@ -72,6 +94,40 @@ export default function ProjectsSection() {
                         View on GitHub
                     </a>
                 </motion.article>
+
+                <div className="grid grid-cols-4 gap-4 border-t pt-10 mt-10">
+                    {oldProjects.map((project) => (
+                        <div key={project.src} className="group relative">
+                            <Image
+                                src={project.src}
+                                alt={project.name}
+                                width={1200}
+                                height={600}
+                                className="w-full max-h-[80px] rounded-[2px] object-cover grayscale"
+                            />
+                            <div
+                                className="pointer-events-none absolute bottom-full left-1/2 z-10 w-max max-w-[300px] -translate-x-1/2 pb-3 opacity-0 transition-opacity duration-700 delay-100 group-hover:pointer-events-auto group-hover:opacity-100 group-hover:duration-150 group-hover:delay-0 group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-focus-within:duration-150 group-focus-within:delay-0"
+                            >
+                                <div
+                                    role="tooltip"
+                                    className="rounded-[2px] border border-border bg-background px-5 py-4 shadow-sm"
+                                >
+                                    <p className="text-base font-medium text-foreground">
+                                        {project.name}
+                                    </p>
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-1 block truncate text-sm text-accent underline-offset-2 hover:underline"
+                                    >
+                                        {project.url.replace(/^https?:\/\//, "")}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );
