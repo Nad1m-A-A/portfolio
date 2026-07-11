@@ -9,6 +9,7 @@ const navLinks = [
   { href: "#intro", label: "Intro" },
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
+  { href: "#info", label: "Info" },
 ] as const;
 
 const sectionHashes = navLinks.map((link) => link.href);
