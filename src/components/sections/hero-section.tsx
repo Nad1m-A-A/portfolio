@@ -21,7 +21,7 @@ export default function HeroSection() {
           Software Engineer
         </h1>
         <div className="relative z-10 flex flex-nowrap items-start justify-center gap-2 whitespace-nowrap">
-          <p className="shrink-0 text-xl leading-[1.625rem]">
+          <p className="shrink-0 text-xl leading-[1.525rem]">
             Specialized in
           </p>
           <SpecialtyRotator />
