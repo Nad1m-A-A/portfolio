@@ -16,7 +16,7 @@ const highlights = [
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="section">
+        <section id="projects" className="section pt-0!">
             <div className="app_container">
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
@@ -24,10 +24,7 @@ export default function ProjectsSection() {
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.7, ease: sectionEase }}
                 >
-                    <p className="font-mono text-sm text-accent">
-                        <span className="text-muted">$</span> ls projects
-                    </p>
-                    <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                    <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl border-b border-accent w-fit pb-2">
                         Projects
                     </h2>
                 </motion.div>
@@ -45,7 +42,7 @@ export default function ProjectsSection() {
                         alt="Multi-Business Analytics Dashboard"
                         width={1200}
                         height={600}
-                        className="perspective-1000 transform-style-preserve-3d h-auto w-full object-cover border rounded-2xl z-10 relative"
+                        className="max-h-[300px] w-full object-cover"
                     />
 
                     <div className="space-y-4">
@@ -70,9 +67,7 @@ export default function ProjectsSection() {
                         href="https://github.com/Nad1m-A-A/dashboards-demo"
                         target="_blank"
                         rel="noopener noreferrer"
-                        // className="inline-block border-b border-transparent pb-0.5 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
-                        className="leading-relaxed px-3 py-2 pt-2.5 bg-accent transition-all cursor-pointer text-background rounded-[2px]"
-
+                        className="leading-relaxed px-3 py-2 pt-2.5 bg-accent transition-all cursor-pointer text-black rounded-[2px]"
                     >
                         View on GitHub
                     </a>
