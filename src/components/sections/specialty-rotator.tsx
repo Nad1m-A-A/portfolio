@@ -50,40 +50,39 @@ export function SpecialtyRotator() {
         let dir = -1;
         let delay: gsap.core.Tween | undefined;
 
-        const paint = (index: number) => {
-          items.forEach((el, i) => {
-            gsap.set(el, { opacity: opacityFor(Math.abs(i - index)) });
-          });
-        };
-
+        // Initial state only — runtime steps tween opacity with y (no gsap.set snaps).
         gsap.set(track, { y: -LAST * lineHeight() });
-        paint(LAST);
+        items.forEach((el, i) => {
+          gsap.set(el, { opacity: opacityFor(Math.abs(i - LAST)) });
+        });
 
         const stepTo = (index: number) => {
           const h = lineHeight();
+          const tl = gsap.timeline({
+            onComplete: () => {
+              active = index;
+              delay = gsap.delayedCall(HOLD_S, tick);
+            },
+          });
 
-          gsap
-            .timeline({
-              onComplete: () => {
-                active = index;
-                paint(active);
-                delay = gsap.delayedCall(HOLD_S, tick);
-              },
-            })
-            .to(track, {
-              y: -index * h,
-              duration: SHIFT_S,
-              ease: "power2.inOut",
-            })
-            .to(
-              items,
+          tl.to(track, {
+            y: -index * h,
+            duration: SHIFT_S,
+            ease: "power2.inOut",
+          });
+
+          // Per-item tweens so each line eases to its target opacity with the shift.
+          items.forEach((el, i) => {
+            tl.to(
+              el,
               {
-                opacity: (i: number) => opacityFor(Math.abs(i - index)),
+                opacity: opacityFor(Math.abs(i - index)),
                 duration: SHIFT_S,
                 ease: "power2.inOut",
               },
               0,
             );
+          });
         };
 
         const tick = () => {
@@ -122,7 +121,7 @@ export function SpecialtyRotator() {
         {PHRASES.map((phrase) => (
           <p
             key={phrase}
-            className="h-[1.625rem] whitespace-nowrap text-start text-foreground"
+            className="h-[1.625rem] whitespace-nowrap font-medium text-accent text-start"
           >
             {phrase}
           </p>

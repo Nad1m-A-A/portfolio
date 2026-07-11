@@ -67,7 +67,7 @@ export default function ProjectsSection() {
                         href="https://github.com/Nad1m-A-A/dashboards-demo"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="leading-relaxed px-3 py-2 pt-2.5 bg-accent transition-all cursor-pointer text-black rounded-[2px]"
+                        className="leading-relaxed px-3 py-2 pt-2.5 bg-accent transition-all cursor-pointer rounded-[2px]"
                     >
                         View on GitHub
                     </a>
