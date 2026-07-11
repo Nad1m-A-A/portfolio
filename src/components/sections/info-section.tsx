@@ -26,7 +26,7 @@ export default function InfoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: sectionEase, delay: 0.08 }}
-          className="mt-10 space-y-8 grid grid-cols-2 gap-4 items-center"
+          className="mt-10 space-y-8 grid grid-cols-2 items-center"
         >
           <dl className="space-y-5">
             <div>
@@ -49,11 +49,11 @@ export default function InfoSection() {
             </div>
           </dl>
           <Image
-            src="/map.png"
+            src="/Adobe Express - file.png"
             alt="United Arab Emirates"
             width={1200}
             height={600}
-            className="w-100 object-cover object-center"
+            className="max-w-200 w-full object-cover object-center"
           />
         </motion.div>
       </div>
