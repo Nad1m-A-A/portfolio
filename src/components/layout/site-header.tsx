@@ -26,7 +26,7 @@ export function SiteHeader() {
     >
       <div className="z-10 flex h-16 items-center justify-between px-10">
         <Link
-          className="text-accent text-lg font-medium"
+          className="text-lg font-medium"
           href="/"
         >
           Nadim Alaa
