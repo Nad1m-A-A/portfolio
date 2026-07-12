@@ -98,7 +98,12 @@ export default function WorkingOnSection() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenId(isOpen ? null : faq.id)}
-                    className="group cursor-pointer flex w-full items-start gap-4 py-5 text-left transition-colors"
+                    className={`group cursor-pointer flex w-full items-start gap-4 text-left transition-colors ${index === 0
+                        ? "pb-5"
+                        : index === faqs.length - 1
+                          ? "pt-5"
+                          : "py-5"
+                      }`}
                   >
                     <span className="mt-0.5 font-mono text-sm font-semibold text-accent group-hover:opacity-70">
                       Q
