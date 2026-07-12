@@ -22,7 +22,7 @@ export default function SectionTitle({
       transition={{ duration: 0.7, ease: sectionEase }}
     >
       <h2
-        className={`w-fit border-b border-accent pb-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl ${className}`}
+        className={`w-fit border-b border-accent text-3xl font-semibold tracking-tight text-foreground sm:text-4xl bg-accent leading-3 pb-2 px-1 ${className}`}
       >
         {children}
       </h2>

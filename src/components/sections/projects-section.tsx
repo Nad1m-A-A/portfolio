@@ -101,7 +101,7 @@ export default function ProjectsSection() {
                                 aria-label="Previous project"
                                 disabled={isAnimating}
                                 onClick={goPrev}
-                                className="absolute left-0 top-[150px] z-10 -translate-y-1/2 cursor-pointer p-2 text-foreground transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="absolute left-0 top-[150px] z-10 -translate-y-1/2 cursor-pointer p-2 text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
                             >
                                 <LuChevronLeft className="size-6" aria-hidden />
                             </button>
@@ -110,7 +110,7 @@ export default function ProjectsSection() {
                                 aria-label="Next project"
                                 disabled={isAnimating}
                                 onClick={goNext}
-                                className="absolute right-0 top-[150px] z-10 -translate-y-1/2 cursor-pointer p-2 text-foreground transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="absolute right-0 top-[150px] z-10 -translate-y-1/2 cursor-pointer p-2 text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
                             >
                                 <LuChevronRight className="size-6" aria-hidden />
                             </button>

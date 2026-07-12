@@ -114,14 +114,14 @@ export function SpecialtyRotator() {
   return (
     <div
       ref={rootRef}
-      className="relative z-10 h-[4.875rem] shrink-0 overflow-hidden text-lg leading-[1.625rem] [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)]"
+      className="relative z-10 shrink-0 overflow-hidden text-lg [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)]"
       aria-live="polite"
     >
       <div ref={trackRef} className="flex flex-col will-change-transform">
         {PHRASES.map((phrase) => (
           <p
             key={phrase}
-            className="h-[1.625rem] whitespace-nowrap font-medium text-accent text-xl text-start"
+            className="whitespace-nowrap font-medium text-accent text-2xl text-start"
           >
             {phrase}
           </p>
