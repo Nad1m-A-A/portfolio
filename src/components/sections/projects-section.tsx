@@ -32,7 +32,7 @@ const projects: Project[] = [
         ],
         url: "http://dashboards.nadimweb.com",
         repo: "https://github.com/Nad1m-A-A/dashboards-demo",
-        image: "/Web 2.png",
+        image: "/dashboards-mockup.webp",
         available: true,
     },
     {
@@ -45,7 +45,7 @@ const projects: Project[] = [
         ],
         url: null,
         repo: null,
-        image: "/Web 3.png",
+        image: "/erp-mockup.webp",
         available: true,
     },
     {
@@ -57,7 +57,7 @@ const projects: Project[] = [
         ],
         url: null,
         repo: null,
-        image: "/pos-mockup.png",
+        image: "/pos-mockup.webp",
         available: false,
     }
 ];
@@ -128,7 +128,7 @@ export default function ProjectsSection() {
                                     alt={project.name}
                                     width={1200}
                                     height={600}
-                                    className={`max-w-[600px] mx-auto w-full object-cover${project.available ? "" : " opacity-30 blur-[6px]"}`}
+                                    className={`max-w-[500px] mx-auto w-full object-cover${project.available ? "" : " opacity-30 blur-[6px]"}`}
                                 />
                             ) : (
                                 <div
