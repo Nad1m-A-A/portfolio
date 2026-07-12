@@ -28,7 +28,7 @@ const infoItems = [
 
 export default function InfoSection() {
   return (
-    <section id="info" className="section inner-section py-10! pt-0!">
+    <section id="info" className="section inner-section">
       <div className="app_container min-h-[46vh] flex flex-col justify-center">
         <SectionTitle>Info</SectionTitle>
 

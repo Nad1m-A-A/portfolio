@@ -23,7 +23,7 @@ export function SiteHeader() {
       duration={0.6}
       className="sticky top-0 z-50 border-b border-border bg-background shadow-[inset_0_0_100px_rgba(0,0,0,0.1),0_0_10px_rgba(0,0,0,0.1)]"
     >
-      <div className="z-10 flex h-16 items-center justify-between px-10">
+      <div className="z-10 flex h-16 items-center justify-between px-4">
         <Link
           className="text-lg font-medium"
           href="/"
