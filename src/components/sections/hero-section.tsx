@@ -17,7 +17,7 @@ export default function HeroSection() {
         className="relative overflow-hidden font-thin text-center flex flex-col gap-4 items-center justify-center flex-1 min-h-[61.5vh]"
       >
         <HeroPerspectiveGrid />
-        <h1 className="relative z-10 bg-linear-to-b from-muted/50 to-foreground bg-clip-text px-2 font-medium text-transparent text-[clamp(2.25rem,5vw,3.75rem)]">
+        <h1 className="relative z-10 font-medium text-[clamp(2.25rem,5vw,3.75rem)]">
           Software Engineer
         </h1>
         <div className="relative z-10 flex flex-nowrap items-start justify-center gap-2 whitespace-nowrap">
