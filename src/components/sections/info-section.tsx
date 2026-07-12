@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import SectionTitle from "@/components/ui/section-title";
 
 const sectionEase = [0.22, 1, 0.36, 1] as const;
 const email = "nadim.alaa@hotmail.com";
@@ -10,16 +11,7 @@ export default function InfoSection() {
   return (
     <section id="info" className="section">
       <div className="app_container">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: sectionEase }}
-        >
-          <h2 className="mt-3 w-fit border-b border-accent pb-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Info
-          </h2>
-        </motion.div>
+        <SectionTitle className="mt-3">Info</SectionTitle>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -28,13 +20,13 @@ export default function InfoSection() {
           transition={{ duration: 0.7, ease: sectionEase, delay: 0.08 }}
           className="relative"
         >
-          <dl className="space-y-5">
+          <dl className="space-y-4 relative z-10">
             <div>
               <dt className="text-sm text-muted">Email</dt>
               <dd className="mt-1">
                 <a
                   href={`mailto:${email}`}
-                  className="text-base text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline sm:text-lg"
+                  className="text-base text-foreground underline-offset-4 transition-all hover:text-accent hover:underline sm:text-lg"
                 >
                   {email}
                 </a>
@@ -53,7 +45,7 @@ export default function InfoSection() {
             alt="United Arab Emirates"
             width={1200}
             height={600}
-            className="w-100 object-cover object-center absolute -top-3/4 left-0 -translate-x-1/4 opacity-10"
+            className="w-100 object-cover object-center absolute top-5 -translate-y-1/2 -left-10 -translate-x-1/4 opacity-10"
           />
         </motion.div>
       </div>

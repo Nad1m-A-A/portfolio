@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import type { IconType } from "react-icons";
 import { LuChevronRight, LuBot, LuShieldCheck } from "react-icons/lu";
 import { SiDocker, SiGit } from "react-icons/si";
+import SectionTitle from "@/components/ui/section-title";
 
 const sectionEase = [0.22, 1, 0.36, 1] as const;
 const HOVER_OPEN_DELAY_MS = 220;
@@ -94,18 +95,9 @@ export default function WorkingOnSection() {
   return (
     <section id="about" className="section static!">
       <div className="app_container">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: sectionEase }}
-        >
-          <h2 className="border-b border-accent w-fit pb-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            What I&apos;m Up To
-          </h2>
-        </motion.div>
+        <SectionTitle>What I&apos;m Up To</SectionTitle>
 
-        <div className="divide-y divide-border border-b border-border">
+        <div className="divide-y divide-border !last:border-b border-border">
           {faqs.map((faq, index) => {
             const isOpen = openId === faq.id;
             const panelId = `faq-panel-${faq.id}`;

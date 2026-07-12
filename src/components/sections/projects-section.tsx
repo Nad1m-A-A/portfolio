@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import SectionTitle from "@/components/ui/section-title";
 
 const sectionEase = [0.22, 1, 0.36, 1] as const;
 
@@ -14,43 +15,11 @@ const highlights = [
     "Fully documented — bilingual user guide and in-app developer guide for contributors",
 ] as const;
 
-// const oldProjects = [
-//     {
-//         name: "Carne Media Training Center",
-//         url: "https://carnemedia.ae/en",
-//         src: "/carne.png",
-//     },
-//     {
-//         name: "American Aesthetic Medical Center",
-//         url: "https://americanaestheticmc.com",
-//         src: "/american.webp",
-//     },
-//     {
-//         name: "Arya Clinic",
-//         url: "https://aryaclinic.ae",
-//         src: "/arya.webp",
-//     },
-//     {
-//         name: "Abd-Albaset Bali Architecture",
-//         url: "https://www.designerab.com/",
-//         src: "/architect.webp",
-//     },
-// ] as const;
-
 export default function ProjectsSection() {
     return (
         <section id="projects" className="section">
             <div className="app_container">
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.7, ease: sectionEase }}
-                >
-                    <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl border-b border-accent w-fit pb-2">
-                        Projects
-                    </h2>
-                </motion.div>
+                <SectionTitle className="mt-3">Projects</SectionTitle>
 
                 <motion.article
                     initial={{ opacity: 0, y: 16 }}
@@ -73,14 +42,13 @@ export default function ProjectsSection() {
                         </h3>
                     </div>
 
-                    <ul className="space-y-2">
+                    <ul className="list-disc space-y-2 pl-5">
                         {highlights.map((item) => (
                             <li
                                 key={item}
                                 className="text-sm leading-6 text-muted sm:text-base sm:leading-7"
                             >
-                                <span className="font-mono text-accent">— </span>{" "}
-                                <span>{item}</span>
+                                {item}
                             </li>
                         ))}
                     </ul>
