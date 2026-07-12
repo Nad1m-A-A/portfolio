@@ -96,7 +96,7 @@ export default function ProjectsSection() {
                                 aria-label="Previous project"
                                 disabled={isAnimating}
                                 onClick={goPrev}
-                                className="absolute left-0 top-[150px] z-10 -translate-y-1/2 cursor-pointer p-2 text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="absolute left-0 bg-white rounded-full top-[150px] z-10 -translate-y-1/2 cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
                             >
                                 <LuChevronLeft className="size-6" aria-hidden />
                             </button>
@@ -105,7 +105,7 @@ export default function ProjectsSection() {
                                 aria-label="Next project"
                                 disabled={isAnimating}
                                 onClick={goNext}
-                                className="absolute right-0 top-[150px] z-10 -translate-y-1/2 cursor-pointer p-2 text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="absolute right-0 bg-white rounded-full top-[150px] z-10 -translate-y-1/2 cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
                             >
                                 <LuChevronRight className="size-6" aria-hidden />
                             </button>
@@ -181,7 +181,7 @@ export default function ProjectsSection() {
                                         href={project.repo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-block cursor-pointer rounded-[2px] bg-accent px-3 py-2 pt-2.5 leading-relaxed transition-all"
+                                        className="inline-block cursor-pointer rounded-[2px] bg-accent-shift px-3 py-2 pt-2.5 leading-relaxed"
                                     >
                                         View on GitHub
                                     </a>

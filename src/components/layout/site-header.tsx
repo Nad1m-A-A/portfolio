@@ -68,7 +68,7 @@ export function SiteHeader() {
             onClick={() => {
               window.open("mailto:nadim.alaa@hotmail.com", "_blank");
             }}
-            className="leading-relaxed px-3 py-0.5 pt-1 bg-accent transition-all cursor-pointer rounded-[2px]"
+            className="leading-relaxed px-3 py-0.5 pt-1 bg-accent-shift cursor-pointer rounded-[2px]"
           >
             Contact
           </button>
