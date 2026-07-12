@@ -83,7 +83,7 @@ export default function ProjectsSection() {
     };
 
     return (
-        <section id="projects" className="section">
+        <section id="projects" className="section inner-section">
             <div className="app_container">
                 <SectionTitle>Projects</SectionTitle>
 

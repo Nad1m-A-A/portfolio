@@ -59,7 +59,7 @@ body {
     @apply py-20 bg-background relative;
   }
 
-  .section:before {
+  .inner-section:before {
     content: "";
     position: absolute;
     top: 0;

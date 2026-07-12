@@ -98,9 +98,9 @@ export default function WorkingOnSection() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenId(isOpen ? null : faq.id)}
-                    className="group flex w-full items-start gap-4 py-5 text-left transition-colors"
+                    className="group cursor-pointer flex w-full items-start gap-4 py-5 text-left transition-colors"
                   >
-                    <span className="mt-0.5 font-mono text-sm font-semibold text-accent">
+                    <span className="mt-0.5 font-mono text-sm font-semibold text-accent group-hover:opacity-70">
                       Q
                     </span>
                     <span className="flex-1 text-base font-medium text-foreground sm:text-lg">
@@ -108,8 +108,7 @@ export default function WorkingOnSection() {
                     </span>
                     <LuChevronRight
                       aria-hidden
-                      className={`mt-1 size-5 shrink-0 text-accent transition-transform duration-300 ${isOpen ? "rotate-90 text-accent" : ""
-                        }`}
+                      className={`mt-1 size-5 shrink-0 text-accent transition-transform duration-300 group-hover:opacity-70 ${isOpen ? "rotate-90 text-accent" : ""}`}
                     />
                   </button>
                 </h3>

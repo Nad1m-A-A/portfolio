@@ -30,8 +30,8 @@ const infoItems = [
 
 export default function InfoSection() {
   return (
-    <section id="info" className="section py-10!">
-      <div className="app_container min-h-[50vh] flex flex-col justify-center">
+    <section id="info" className="section inner-section py-10! pt-0!">
+      <div className="app_container min-h-[46vh] flex flex-col justify-center">
         <SectionTitle>Info</SectionTitle>
 
         <motion.div
