@@ -3,6 +3,7 @@
 import Link from "next/link";
 import FadeIn from "@/components/ui/fade-in";
 import { useActiveSection } from "@/hooks/useActiveSection.js";
+import { FaGithub } from "react-icons/fa";
 
 const navLinks = [
   { href: "#intro", label: "Intro" },
@@ -23,7 +24,7 @@ export function SiteHeader() {
       duration={0.6}
       className="sticky top-0 z-50 border-b border-border bg-background shadow-[inset_0_0_100px_rgba(0,0,0,0.1),0_0_10px_rgba(0,0,0,0.1)]"
     >
-      <div className="z-10 flex h-16 items-center justify-between px-4">
+      <div className="z-10 flex h-16 items-center justify-between px-4 md:px-10">
         <Link
           className="text-lg font-medium"
           href="/"
@@ -58,6 +59,11 @@ export function SiteHeader() {
         <div className="flex items-center gap-6">
           {/* <ThemeToggle /> */}
 
+          <Link href="https://github.com/Nad1m-A-A" target="_blank">
+            <FaGithub
+              className="size-6"
+            />
+          </Link>
           <button
             onClick={() => {
               window.open("mailto:nadim.alaa@hotmail.com", "_blank");

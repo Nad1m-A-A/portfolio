@@ -10,7 +10,7 @@ const PHRASES = [
 ] as const;
 
 const LAST = PHRASES.length - 1;
-const HOLD_S = 3;
+const HOLD_S = 1.5;
 const SHIFT_S = 0.65;
 
 function opacityFor(dist: number) {

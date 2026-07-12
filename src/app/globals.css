@@ -20,7 +20,7 @@
   --foreground: #f5f0e8;
   --muted: #a8a29e;
   --surface: #292524;
-  --accent: #4274D9;
+  --accent: #3872e6;
   --accent-secondary: #c9a87c;
   --hero-surface: #231f1b;
   --border: color-mix(in oklab, var(--foreground) 12%, transparent);
