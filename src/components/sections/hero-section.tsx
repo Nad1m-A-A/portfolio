@@ -20,7 +20,7 @@ export default function HeroSection() {
         <h1 className="relative z-10 font-medium text-[clamp(2.25rem,5vw,3.75rem)]">
           Software Engineer
         </h1>
-        <div className="relative z-10 flex flex-nowrap items-start justify-center gap-2 whitespace-nowrap">
+        <div className="relative z-10 flex flex-col md:flex-row items-start justify-center gap-2 whitespace-nowrap">
           <p className="shrink-0 text-xl">
             Specialized in
           </p>

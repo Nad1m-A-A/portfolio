@@ -68,7 +68,7 @@ export default function InfoSection() {
             alt="United Arab Emirates"
             width={1200}
             height={600}
-            className="w-100 object-cover object-center absolute top-15 -translate-y-1/2 left-0 md:-translate-x-1/4 opacity-10"
+            className="w-100 object-cover object-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-0 md:top-15 md:-translate-x-1/4 opacity-10"
           />
         </motion.div>
       </div>
