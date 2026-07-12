@@ -16,7 +16,7 @@ type FocusItem = {
   body: string;
 };
 
-type Faq = {
+type AboutItem = {
   id: string;
   question: string;
 } & (
@@ -24,74 +24,80 @@ type Faq = {
     | { kind: "text"; body: string }
   );
 
-const faqs: Faq[] = [
+const list: AboutItem[] = [
   {
-    id: "now",
-    question: "What is keeping you busy right now?",
+    id: "approach",
+    question: "How do you approach engineering a product?",
     kind: "list",
     items: [
       {
         Icon: SiDocker,
-        title: "Production-Ready Dockerization",
-        body: "Building optimized dev/prod environments using Sail, Compose, and Makefiles, tied together with robust CI/CD pipelines.",
+        title: "Reproducible Environments",
+        body: "Containerized dev-to-prod setups with Docker and CI/CD, so the artifact that passes locally is exactly what ships.",
       },
       {
         Icon: SiGit,
-        title: "Advanced Git Workflows",
-        body: "Implementing bulletproof branching and merge strategies to ensure seamless, conflict-free team collaboration.",
+        title: "Scalable Collaboration",
+        body: "Disciplined Git workflows, reviews, and branching strategies that keep multi-developer teams moving without conflicts.",
       },
       {
         Icon: LuShieldCheck,
-        title: "Infrastructure & Security",
-        body: "Hardening server networks and ensuring service continuity using Tailscale.",
+        title: "Security-First Architecture",
+        body: "Credentials stay server-side, permissions are layered by role, and sensitive actions are audited by default.",
       },
       {
         Icon: LuBot,
-        title: "AI-Augmented Development",
-        body: "Integrating agentic AI tooling into my daily workflow to accelerate scaffolding, code exploration, and UI iterations.",
+        title: "AI-Augmented Delivery",
+        body: "Agentic AI tooling folded into daily work to accelerate scaffolding and iteration while holding the quality bar high.",
       },
     ],
   },
   {
-    id: "testing",
-    question: "I don't see Unit Testing in your current stack. What's the plan?",
+    id: "systems",
+    question: "What kind of systems have you shipped?",
     kind: "text",
-    body: "To be fully transparent: it's the next major milestone on my board. I am currently mapping out a dedicated phase to implement comprehensive automated testing pipelines to ensure codebases are unbreakable before they ever hit staging.",
+    body: "Full end-to-end platforms that run real businesses — multi-tenant ERPs spanning inventory, HR, production, and order tracking, a unified dashboard that consolidates separate systems behind one authenticated surface, and a high-throughput POS with native hardware integration. I own the whole stack, from database schema and server APIs to the interface people use every day.",
   },
   {
-    id: "goal-2027",
-    question: "What is the ultimate goal for 2027?",
+    id: "reliability",
+    question: "How do you keep what you ship reliable?",
     kind: "text",
-    body: "To ship reliable, resilient, and highly scalable SaaS products. Every piece of my current learning path—from containerization to secure networking—is intentionally chosen to bridge the gap between \"it works on my machine\" and enterprise-grade deployment.",
+    body: "Reliability is designed in, not bolted on. Business logic lives on the server behind a single API contract that demo and production both share, permissions are enforced on the API and mirrored in the UI, and CI with automated testing catches regressions long before they reach staging.",
+  },
+  {
+    id: "next",
+    question: "Where are you headed next?",
+    kind: "text",
+    body: "Toward larger, more resilient SaaS systems — going deeper on distributed infrastructure, observability, and secure networking so the products I build scale cleanly from the first customer to thousands.",
   },
 ];
 
-export default function WorkingOnSection() {
-  const [openId, setOpenId] = useState<string | null>(faqs[0].id);
+export default function AboutSection() {
+  const [openId, setOpenId] = useState<string | null>(list[0].id);
 
   return (
     <section id="about" className="section static!">
       <div className="app_container">
-        <SectionTitle>What I&apos;m Up To</SectionTitle>
+        <SectionTitle>About</SectionTitle>
 
         <div className="divide-y divide-border !last:border-b border-border">
-          {faqs.map((faq, index) => {
-            const isOpen = openId === faq.id;
-            const panelId = `faq-panel-${faq.id}`;
-            const buttonId = `faq-button-${faq.id}`;
+          {list.map((item, index) => {
+            const isOpen = openId === item.id;
+            const panelId = `about-panel-${item.id}`;
+            const buttonId = `about-button-${item.id}`;
 
             return (
-              <FadeIn key={faq.id}>
+              <FadeIn key={item.id}>
                 <h3>
                   <button
                     type="button"
                     id={buttonId}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    onClick={() => setOpenId(isOpen ? null : faq.id)}
+                    onClick={() => setOpenId(isOpen ? null : item.id)}
                     className={`group cursor-pointer flex w-full items-start gap-4 text-left transition-colors ${index === 0
                       ? "pb-5"
-                      : index === faqs.length - 1
+                      : index === list.length - 1
                         ? "pt-5"
                         : "py-5"
                       }`}
@@ -100,7 +106,7 @@ export default function WorkingOnSection() {
                       Q
                     </span>
                     <span className="flex-1 text-base font-medium text-foreground sm:text-lg">
-                      {faq.question}
+                      {item.question}
                     </span>
                     <LuChevronRight
                       aria-hidden
@@ -122,17 +128,17 @@ export default function WorkingOnSection() {
                       className="overflow-hidden"
                     >
                       <div className="pb-6">
-                        {faq.kind === "text" ? (
+                        {item.kind === "text" ? (
                           <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
-                            {faq.body}
+                            {item.body}
                           </p>
                         ) : (
                           <ul className="grid gap-4 sm:grid-cols-2">
-                            {faq.items.map(({ Icon, title, body }) => (
-
+                            {item.items.map(({ Icon, title, body }) => (
                               <FadeIn
                                 key={title}
-                                className="rounded-[2px] border border-border bg-surface/50 p-4 transition-colors hover:border-accent/40">
+                                className="rounded-[2px] border border-border bg-surface/50 p-4 transition-colors hover:border-accent/40"
+                              >
                                 <li>
                                   <div className="flex items-center gap-2.5">
                                     <Icon
