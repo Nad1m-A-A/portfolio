@@ -8,7 +8,7 @@ const email = "nadim.alaa@hotmail.com";
 
 export default function InfoSection() {
   return (
-    <section id="info" className="section pt-0!">
+    <section id="info" className="section">
       <div className="app_container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -26,7 +26,7 @@ export default function InfoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: sectionEase, delay: 0.08 }}
-          className="mt-10 space-y-8 grid grid-cols-2 items-center"
+          className="relative"
         >
           <dl className="space-y-5">
             <div>
@@ -53,7 +53,7 @@ export default function InfoSection() {
             alt="United Arab Emirates"
             width={1200}
             height={600}
-            className="max-w-200 w-full object-cover object-center"
+            className="w-100 object-cover object-center absolute -top-3/4 left-0 -translate-x-1/4 opacity-10"
           />
         </motion.div>
       </div>

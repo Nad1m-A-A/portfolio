@@ -7,11 +7,11 @@ import { appFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: {
-    default: "Nadim — Web Developer",
-    template: "%s | Nadim",
+    default: "Nadim Alaa, Software Engineer Specialized in Full Stack ERP Development.",
+    template: "%s | Nadim Alaa",
   },
   description:
-    "Portfolio of Nadim — developer crafting polished web experiences with Next.js, Motion, and GSAP.",
+    "Nadim Alaa, Software Engineer Specialized in Full Stack ERP Development.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${appFont.className} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="flex min-h-full flex-col">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
 
-          <div className="p-4 relative overflow-hidden">
+          <div className="p-3 relative overflow-hidden">
             <HeroPerspectiveGrid />
             <SiteShell
               insetShadowColor={mainInsetShadowColor}
@@ -45,9 +45,7 @@ export default function RootLayout({
             >
               {children}
             </SiteShell>
-            {/* <SiteFooter /> */}
           </div>
-
         </ThemeProvider>
       </body>
     </html>

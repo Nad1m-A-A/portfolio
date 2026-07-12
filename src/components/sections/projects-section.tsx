@@ -39,7 +39,7 @@ const highlights = [
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="section pt-0!">
+        <section id="projects" className="section">
             <div className="app_container">
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}

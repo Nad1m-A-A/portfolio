@@ -92,7 +92,7 @@ export default function WorkingOnSection() {
   };
 
   return (
-    <section id="about" className="section">
+    <section id="about" className="section static!">
       <div className="app_container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

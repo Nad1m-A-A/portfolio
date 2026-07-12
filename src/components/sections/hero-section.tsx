@@ -9,7 +9,7 @@ const heroEase = [0.22, 1, 0.36, 1] as const;
 
 export default function HeroSection() {
   return (
-    <section id="intro" className="flex flex-col">
+    <section id="intro" className="bg-background">
       <motion.div
         initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
