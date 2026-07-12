@@ -5,9 +5,10 @@ import { AnimatePresence, motion } from "motion/react";
 import type { IconType } from "react-icons";
 import { LuChevronRight, LuBot, LuShieldCheck } from "react-icons/lu";
 import { SiDocker, SiGit } from "react-icons/si";
+import FadeIn from "@/components/ui/fade-in";
 import SectionTitle from "@/components/ui/section-title";
 
-const sectionEase = [0.22, 1, 0.36, 1] as const;
+const panelEase = [0.22, 1, 0.36, 1] as const;
 
 type FocusItem = {
   Icon: IconType;
@@ -80,17 +81,7 @@ export default function WorkingOnSection() {
             const buttonId = `faq-button-${faq.id}`;
 
             return (
-              <motion.div
-                key={faq.id}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  duration: 0.6,
-                  ease: sectionEase,
-                  delay: index * 0.06,
-                }}
-              >
+              <FadeIn key={faq.id}>
                 <h3>
                   <button
                     type="button"
@@ -99,10 +90,10 @@ export default function WorkingOnSection() {
                     aria-controls={panelId}
                     onClick={() => setOpenId(isOpen ? null : faq.id)}
                     className={`group cursor-pointer flex w-full items-start gap-4 text-left transition-colors ${index === 0
-                        ? "pb-5"
-                        : index === faqs.length - 1
-                          ? "pt-5"
-                          : "py-5"
+                      ? "pb-5"
+                      : index === faqs.length - 1
+                        ? "pt-5"
+                        : "py-5"
                       }`}
                   >
                     <span className="mt-0.5 font-mono text-sm font-semibold text-accent group-hover:opacity-70">
@@ -127,7 +118,7 @@ export default function WorkingOnSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: sectionEase }}
+                      transition={{ duration: 0.35, ease: panelEase }}
                       className="overflow-hidden"
                     >
                       <div className="pb-6">
@@ -138,23 +129,25 @@ export default function WorkingOnSection() {
                         ) : (
                           <ul className="grid gap-4 sm:grid-cols-2">
                             {faq.items.map(({ Icon, title, body }) => (
-                              <li
+
+                              <FadeIn
                                 key={title}
-                                className="rounded-[2px] border border-border bg-surface/50 p-4 transition-colors hover:border-accent/40"
-                              >
-                                <div className="flex items-center gap-2.5">
-                                  <Icon
-                                    aria-hidden
-                                    className="size-5 shrink-0 text-accent"
-                                  />
-                                  <span className="text-sm font-semibold text-foreground">
-                                    {title}
-                                  </span>
-                                </div>
-                                <p className="mt-2 text-sm leading-6 text-muted">
-                                  {body}
-                                </p>
-                              </li>
+                                className="rounded-[2px] border border-border bg-surface/50 p-4 transition-colors hover:border-accent/40">
+                                <li>
+                                  <div className="flex items-center gap-2.5">
+                                    <Icon
+                                      aria-hidden
+                                      className="size-5 shrink-0 text-accent"
+                                    />
+                                    <span className="text-sm font-semibold text-foreground">
+                                      {title}
+                                    </span>
+                                  </div>
+                                  <p className="mt-2 text-sm leading-6 text-muted">
+                                    {body}
+                                  </p>
+                                </li>
+                              </FadeIn>
                             ))}
                           </ul>
                         )}
@@ -162,7 +155,7 @@ export default function WorkingOnSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

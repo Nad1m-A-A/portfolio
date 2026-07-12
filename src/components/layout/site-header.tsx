@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+import FadeIn from "@/components/ui/fade-in";
 import { useActiveSection } from "@/hooks/useActiveSection.js";
 
 const navLinks = [
@@ -18,10 +17,10 @@ export function SiteHeader() {
   const { activeHash, navigateToHash } = useActiveSection(sectionHashes);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    <FadeIn
+      as="header"
+      trigger="mount"
+      duration={0.6}
       className="sticky top-0 z-50 border-b border-border bg-background shadow-[inset_0_0_100px_rgba(0,0,0,0.1),0_0_10px_rgba(0,0,0,0.1)]"
     >
       <div className="z-10 flex h-16 items-center justify-between px-10">
@@ -34,15 +33,10 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link, index) => (
-            <motion.div
+            <FadeIn
               key={link.href}
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.1 + index * 0.08,
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              trigger="mount"
+              delay={0.1 + index * 0.08}
             >
               <a
                 href={link.href}
@@ -57,7 +51,7 @@ export function SiteHeader() {
               >
                 {link.label}
               </a>
-            </motion.div>
+            </FadeIn>
           ))}
         </nav>
 
@@ -74,6 +68,6 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
-    </motion.header>
+    </FadeIn>
   );
 }

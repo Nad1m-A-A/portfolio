@@ -4,9 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { LuChevronLeft, LuChevronRight, LuExternalLink } from "react-icons/lu";
+import FadeIn from "@/components/ui/fade-in";
 import SectionTitle from "@/components/ui/section-title";
 
-const sectionEase = [0.22, 1, 0.36, 1] as const;
+const fadeEase = [0.22, 1, 0.36, 1] as const;
 const fadeDuration = 0.3;
 
 type Project = {
@@ -87,13 +88,7 @@ export default function ProjectsSection() {
             <div className="app_container">
                 <SectionTitle>Projects</SectionTitle>
 
-                <motion.article
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.7, ease: sectionEase, delay: 0.08 }}
-                    className="relative mt-10"
-                >
+                <FadeIn className="relative mt-10">
                     {showArrows && (
                         <>
                             <button
@@ -123,7 +118,7 @@ export default function ProjectsSection() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: fadeDuration, ease: sectionEase }}
+                            transition={{ duration: fadeDuration, ease: fadeEase }}
                             onAnimationComplete={() => setIsAnimating(false)}
                             className="space-y-4"
                         >
@@ -142,53 +137,60 @@ export default function ProjectsSection() {
                                 />
                             )}
 
-                            <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl mt-10">
-                                {
-                                    project.url ? (
-                                        <a
-                                            href={project.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
-                                        >
-                                            {project.name}
-                                            <LuExternalLink className="size-5 shrink-0" aria-hidden />
-                                        </a>
-                                    ) : (
-                                        <span className="inline-flex items-center gap-2">
-                                            {project.name}
-                                        </span>
-                                    )
-                                }
-                            </h3>
+                            <FadeIn>
+                                <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl mt-10">
+                                    {
+                                        project.url ? (
+                                            <a
+                                                href={project.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+                                            >
+                                                {project.name}
+                                                <LuExternalLink className="size-5 shrink-0" aria-hidden />
+                                            </a>
+                                        ) : (
+                                            <span className="inline-flex items-center gap-2">
+                                                {project.name}
+                                            </span>
+                                        )
+                                    }
+                                </h3>
+                            </FadeIn>
+
 
                             {project.highlights && project.highlights.length > 0 && (
                                 <ul className="list-disc space-y-4 pl-4">
                                     {project.highlights.map((item) => (
-                                        <li
+                                        <FadeIn
                                             key={item}
                                             className="leading-6 text-muted sm:text-base sm:leading-7"
                                         >
-                                            {item}
-                                        </li>
+                                            <li>
+                                                {item}
+                                            </li>
+                                        </FadeIn>
                                     ))}
                                 </ul>
                             )}
 
                             {project.repo && (
-                                <a
-                                    href={project.repo}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-block cursor-pointer rounded-[2px] bg-accent px-3 py-2 pt-2.5 leading-relaxed transition-all"
-                                >
-                                    View on GitHub
-                                </a>
+                                <FadeIn>
+                                    <a
+                                        href={project.repo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-block cursor-pointer rounded-[2px] bg-accent px-3 py-2 pt-2.5 leading-relaxed transition-all"
+                                    >
+                                        View on GitHub
+                                    </a>
+                                </FadeIn>
                             )}
                         </motion.div>
                     </AnimatePresence>
-                </motion.article>
+                </FadeIn>
             </div>
-        </section>
+        </section >
     );
 }
