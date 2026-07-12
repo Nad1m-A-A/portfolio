@@ -121,7 +121,7 @@ export function SpecialtyRotator() {
         {PHRASES.map((phrase) => (
           <p
             key={phrase}
-            className="h-[1.625rem] whitespace-nowrap font-medium text-accent text-start"
+            className="h-[1.625rem] whitespace-nowrap font-medium text-accent text-xl text-start"
           >
             {phrase}
           </p>

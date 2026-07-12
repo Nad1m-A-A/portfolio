@@ -19,14 +19,14 @@ export default function ProjectsSection() {
     return (
         <section id="projects" className="section">
             <div className="app_container">
-                <SectionTitle className="mt-3">Projects</SectionTitle>
+                <SectionTitle>Projects</SectionTitle>
 
                 <motion.article
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.7, ease: sectionEase, delay: 0.08 }}
-                    className="mt-10 space-y-6"
+                    className="mt-10 space-y-10"
                 >
                     <Image
                         src="/dashboards.png"
@@ -36,17 +36,15 @@ export default function ProjectsSection() {
                         className="max-h-[300px] w-full object-cover"
                     />
 
-                    <div className="space-y-4">
-                        <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-                            Multi-Business Analytics Dashboard
-                        </h3>
-                    </div>
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                        Multi-Business Analytics Dashboard
+                    </h3>
 
-                    <ul className="list-disc space-y-2 pl-5">
+                    <ul className="list-disc space-y-4 pl-4">
                         {highlights.map((item) => (
                             <li
                                 key={item}
-                                className="text-sm leading-6 text-muted sm:text-base sm:leading-7"
+                                className="leading-6 text-muted sm:text-base sm:leading-7"
                             >
                                 {item}
                             </li>
@@ -62,52 +60,6 @@ export default function ProjectsSection() {
                         View on GitHub
                     </a>
                 </motion.article>
-
-                {/* <div className="mt-10 grid grid-cols-2 gap-4 overflow-x-clip border-t border-border pt-10 sm:grid-cols-4">
-                    {oldProjects.map((project, index) => {
-                        // Keep hover tooltips inside the viewport: pin edges left/right, center the middle.
-                        const tooltipAlign =
-                            index === 0
-                                ? "left-0"
-                                : index === oldProjects.length - 1
-                                    ? "right-0"
-                                    : index % 2 === 1
-                                        ? "right-0 sm:left-1/2 sm:right-auto sm:-translate-x-1/2"
-                                        : "left-0 sm:left-1/2 sm:-translate-x-1/2";
-
-                        return (
-                            <div key={project.src} className="group relative min-w-0">
-                                <Image
-                                    src={project.src}
-                                    alt={project.name}
-                                    width={1200}
-                                    height={600}
-                                    className="max-h-[80px] w-full rounded-[2px] object-cover grayscale"
-                                />
-                                <div
-                                    className={`pointer-events-none absolute bottom-full z-10 w-max max-w-[min(300px,100%)] pb-3 opacity-0 transition-opacity duration-700 delay-100 group-hover:pointer-events-auto group-hover:opacity-100 group-hover:delay-0 group-hover:duration-150 group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-focus-within:delay-0 group-focus-within:duration-150 ${tooltipAlign}`}
-                                >
-                                    <div
-                                        role="tooltip"
-                                        className="rounded-[2px] border border-border bg-background px-5 py-4 shadow-sm"
-                                    >
-                                        <p className="text-base font-medium text-foreground">
-                                            {project.name}
-                                        </p>
-                                        <a
-                                            href={project.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="mt-1 block truncate text-sm text-accent underline-offset-2 hover:underline"
-                                        >
-                                            {project.url.replace(/^https?:\/\//, "")}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div> */}
             </div>
         </section>
     );

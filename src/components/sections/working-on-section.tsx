@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { IconType } from "react-icons";
 import { LuChevronRight, LuBot, LuShieldCheck } from "react-icons/lu";
@@ -8,7 +8,6 @@ import { SiDocker, SiGit } from "react-icons/si";
 import SectionTitle from "@/components/ui/section-title";
 
 const sectionEase = [0.22, 1, 0.36, 1] as const;
-const HOVER_OPEN_DELAY_MS = 220;
 
 type FocusItem = {
   Icon: IconType;
@@ -68,29 +67,6 @@ const faqs: Faq[] = [
 
 export default function WorkingOnSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0].id);
-  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const clearHoverTimeout = () => {
-    if (hoverTimeoutRef.current !== null) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-    }
-  };
-
-  useEffect(() => () => clearHoverTimeout(), []);
-
-  const openOnHover = (id: string) => {
-    clearHoverTimeout();
-    hoverTimeoutRef.current = setTimeout(() => {
-      setOpenId(id);
-      hoverTimeoutRef.current = null;
-    }, HOVER_OPEN_DELAY_MS);
-  };
-
-  const openImmediately = (id: string | null) => {
-    clearHoverTimeout();
-    setOpenId(id);
-  };
 
   return (
     <section id="about" className="section static!">
@@ -114,8 +90,6 @@ export default function WorkingOnSection() {
                   ease: sectionEase,
                   delay: index * 0.06,
                 }}
-                onMouseEnter={() => openOnHover(faq.id)}
-                onMouseLeave={clearHoverTimeout}
               >
                 <h3>
                   <button
@@ -123,7 +97,7 @@ export default function WorkingOnSection() {
                     id={buttonId}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    onClick={() => openImmediately(isOpen ? null : faq.id)}
+                    onClick={() => setOpenId(isOpen ? null : faq.id)}
                     className="group flex w-full items-start gap-4 py-5 text-left transition-colors"
                   >
                     <span className="mt-0.5 font-mono text-sm font-semibold text-accent">

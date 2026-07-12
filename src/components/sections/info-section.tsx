@@ -11,7 +11,7 @@ export default function InfoSection() {
   return (
     <section id="info" className="section">
       <div className="app_container">
-        <SectionTitle className="mt-3">Info</SectionTitle>
+        <SectionTitle>Info</SectionTitle>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -45,7 +45,7 @@ export default function InfoSection() {
             alt="United Arab Emirates"
             width={1200}
             height={600}
-            className="w-100 object-cover object-center absolute top-5 -translate-y-1/2 -left-10 -translate-x-1/4 opacity-10"
+            className="w-100 object-cover object-center absolute top-5 -translate-y-1/2 -left-10 md:-translate-x-1/4 opacity-10"
           />
         </motion.div>
       </div>
