@@ -32,7 +32,7 @@ const projects: Project[] = [
         ],
         url: "http://dashboards.nadimweb.com",
         repo: "https://github.com/Nad1m-A-A/dashboards-demo",
-        image: "/dashboards-mockup.png",
+        image: "/Web 2.png",
         available: true,
     },
     {
@@ -45,7 +45,7 @@ const projects: Project[] = [
         ],
         url: null,
         repo: null,
-        image: "/erp-mockup.jpeg",
+        image: "/Web 3.png",
         available: true,
     },
     {
