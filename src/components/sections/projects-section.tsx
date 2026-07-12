@@ -14,28 +14,28 @@ const highlights = [
     "Fully documented — bilingual user guide and in-app developer guide for contributors",
 ] as const;
 
-const oldProjects = [
-    {
-        name: "Carne Media Training Center",
-        url: "https://carnemedia.ae/en",
-        src: "/carne.png",
-    },
-    {
-        name: "American Aesthetic Medical Center",
-        url: "https://americanaestheticmc.com",
-        src: "/american.webp",
-    },
-    {
-        name: "Arya Clinic",
-        url: "https://aryaclinic.ae",
-        src: "/arya.webp",
-    },
-    {
-        name: "Abd-Albaset Bali Architecture",
-        url: "https://www.designerab.com/",
-        src: "/architect.webp",
-    },
-] as const;
+// const oldProjects = [
+//     {
+//         name: "Carne Media Training Center",
+//         url: "https://carnemedia.ae/en",
+//         src: "/carne.png",
+//     },
+//     {
+//         name: "American Aesthetic Medical Center",
+//         url: "https://americanaestheticmc.com",
+//         src: "/american.webp",
+//     },
+//     {
+//         name: "Arya Clinic",
+//         url: "https://aryaclinic.ae",
+//         src: "/arya.webp",
+//     },
+//     {
+//         name: "Abd-Albaset Bali Architecture",
+//         url: "https://www.designerab.com/",
+//         src: "/architect.webp",
+//     },
+// ] as const;
 
 export default function ProjectsSection() {
     return (
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
                     </a>
                 </motion.article>
 
-                <div className="mt-10 grid grid-cols-2 gap-4 overflow-x-clip border-t border-border pt-10 sm:grid-cols-4">
+                {/* <div className="mt-10 grid grid-cols-2 gap-4 overflow-x-clip border-t border-border pt-10 sm:grid-cols-4">
                     {oldProjects.map((project, index) => {
                         // Keep hover tooltips inside the viewport: pin edges left/right, center the middle.
                         const tooltipAlign =
@@ -139,7 +139,7 @@ export default function ProjectsSection() {
                             </div>
                         );
                     })}
-                </div>
+                </div> */}
             </div>
         </section>
     );
