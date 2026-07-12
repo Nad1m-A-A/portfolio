@@ -41,7 +41,7 @@ export default function InfoSection() {
             </div>
           </dl>
           <Image
-            src="/Adobe Express - file.png"
+            src="/uae-map.png"
             alt="United Arab Emirates"
             width={1200}
             height={600}
