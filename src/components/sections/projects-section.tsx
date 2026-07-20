@@ -181,22 +181,22 @@ export default function ProjectsSection() {
                             <div className="flex shrink-0 flex-col gap-2">
                                 <button
                                     type="button"
-                                    aria-label="Previous project"
-                                    disabled={isAnimating}
-                                    onClick={goPrev}
-                                    className="cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
-                                >
-                                    <LuChevronLeft className="size-6" aria-hidden />
-                                </button>
-                                <div className="h-px w-full bg-accent" />
-                                <button
-                                    type="button"
                                     aria-label="Next project"
                                     disabled={isAnimating}
                                     onClick={goNext}
                                     className="cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
                                 >
                                     <LuChevronRight className="size-6" aria-hidden />
+                                </button>
+                                <div className="h-px w-full bg-accent" />
+                                <button
+                                    type="button"
+                                    aria-label="Previous project"
+                                    disabled={isAnimating}
+                                    onClick={goPrev}
+                                    className="cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                >
+                                    <LuChevronLeft className="size-6" aria-hidden />
                                 </button>
                             </div>
                         )}

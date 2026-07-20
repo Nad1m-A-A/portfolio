@@ -133,7 +133,7 @@ export default function AboutSection() {
                             {item.body}
                           </p>
                         ) : (
-                          <ul className="grid gap-4 sm:grid-cols-2">
+                          <ul className="grid gap-2.5 sm:grid-cols-2">
                             {item.items.map(({ Icon, title, body }) => (
                               <FadeIn
                                 key={title}
