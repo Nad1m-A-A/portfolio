@@ -27,8 +27,8 @@ const projects: Project[] = [
             "Credentials and ERP URLs never reach the browser; all fetches go through an authorized server proxy",
             "Role-based passcode auth with request auditing for non-admin roles",
             "Layered permissions (views / actions / businesses) enforced on the API and mirrored in the UI",
-            "Same API contract in demo and production — synthetic data swaps in without changing the frontend",
-            "Fully documented — bilingual user guide and in-app developer guide for contributors",
+            "Same API contract in demo and production, with synthetic data swaps in without changing the frontend",
+            "Fully documented, with a bilingual user guide and in-app developer guide for contributors",
         ],
         url: "http://dashboards.nadimweb.com",
         repo: "https://github.com/Nad1m-A-A/dashboards-demo",
@@ -36,30 +36,42 @@ const projects: Project[] = [
         available: true,
     },
     {
-        name: "Gold Factory ERP",
+        name: "Jewelry Factory ERP",
         highlights: [
             "End-to-end ERP for gold manufacturing with dedicated modules for inventory, HR, production, and order tracking",
             "Minimizes mistakes by automating complex and repetitive workflows",
             "Delivers precise material tracking and real-time metrics across all production stages",
             "Seamless, secure in-app subscription payments and renewals"
         ],
-        url: null,
+        url: "https://gold.nadimweb.com",
         repo: null,
         image: "/erp-mockup.webp",
         available: true,
     },
     {
-        name: "POS System",
+        name: "Carne Media Training Center",
         highlights: [
-            "High-throughput checkout system with native scanner, printer, and cash drawer integration",
-            "Built for high-volume retail environments to minimize queue friction and transaction lag",
-            "Real-time inventory synchronization across multi-terminal setups",
+            "Next.js app with full Arabic/English localization and locale-aware routing",
+            "SEO-ready structure with metadata, crawlable pages, and bilingual content",
+            "Marketing site for programs, founder story, and journal — built for a Dubai media training brand",
         ],
-        url: null,
+        url: "https://carnemedia.ae/en",
         repo: null,
-        image: "/pos-mockup.webp",
-        available: false,
-    }
+        image: "/carne-mockup-removebg-preview.png",
+        available: true,
+    },
+    {
+        name: "CodeTen Software Solutions",
+        highlights: [
+            "React SPA with a multi-page marketing architecture for ERP, healthcare, e-invoicing, and apps",
+            "Full Arabic/English bilingual experience across the site",
+            "Positions Code 10 as a UAE-local software house with solution and client storytelling",
+        ],
+        url: "https://codeten.net/en",
+        repo: null,
+        image: "/code10-mockup.webp",
+        available: true,
+    },
 ];
 
 export default function ProjectsSection() {
@@ -88,29 +100,81 @@ export default function ProjectsSection() {
             <div className="app_container">
                 <SectionTitle>Projects</SectionTitle>
 
-                <FadeIn className="relative mt-10">
-                    {showArrows && (
-                        <>
-                            <button
-                                type="button"
-                                aria-label="Previous project"
-                                disabled={isAnimating}
-                                onClick={goPrev}
-                                className="absolute left-0 bg-white rounded-full top-[150px] z-10 -translate-y-1/2 cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
-                            >
-                                <LuChevronLeft className="size-6" aria-hidden />
-                            </button>
-                            <button
-                                type="button"
-                                aria-label="Next project"
-                                disabled={isAnimating}
-                                onClick={goNext}
-                                className="absolute right-0 bg-white rounded-full top-[150px] z-10 -translate-y-1/2 cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
-                            >
-                                <LuChevronRight className="size-6" aria-hidden />
-                            </button>
-                        </>
-                    )}
+                <FadeIn className="mt-10 space-y-4">
+                    <div className="flex items-center gap-3">
+                        <div className="max-w-125 w-full -ml-8">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={active}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: fadeDuration, ease: fadeEase }}
+                                    onAnimationComplete={() => setIsAnimating(false)}
+                                >
+                                    {project.image ? (
+                                        <Image
+                                            src={project.image}
+                                            alt={project.name}
+                                            width={1200}
+                                            height={600}
+                                            className={`w-full object-cover${project.available ? "" : " opacity-30 blur-[6px]"}`}
+                                        />
+                                    ) : (
+                                        <div className="min-h-75 w-full" aria-hidden />
+                                    )}
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {showArrows && (
+                                <div
+                                    className="mt-4 flex gap-2 pl-8"
+                                    role="tablist"
+                                    aria-label="Project indicators"
+                                >
+                                    {projects.map((item, index) => (
+                                        <button
+                                            key={item.name}
+                                            type="button"
+                                            role="tab"
+                                            aria-label={`Go to ${item.name}`}
+                                            aria-selected={index === active}
+                                            disabled={isAnimating}
+                                            onClick={() => goTo(index)}
+                                            className={`h-0.5 flex-1 cursor-pointer transition-colors disabled:cursor-not-allowed ${index === active
+                                                ? "bg-accent"
+                                                : "bg-accent/25 hover:bg-accent/50"
+                                                }`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {showArrows && (
+                            <div className="flex shrink-0 flex-col gap-2">
+                                <button
+                                    type="button"
+                                    aria-label="Previous project"
+                                    disabled={isAnimating}
+                                    onClick={goPrev}
+                                    className="cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                >
+                                    <LuChevronLeft className="size-6" aria-hidden />
+                                </button>
+                                <div className="h-px w-full bg-accent" />
+                                <button
+                                    type="button"
+                                    aria-label="Next project"
+                                    disabled={isAnimating}
+                                    onClick={goNext}
+                                    className="cursor-pointer text-accent transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
+                                >
+                                    <LuChevronRight className="size-6" aria-hidden />
+                                </button>
+                            </div>
+                        )}
+                    </div>
 
                     <AnimatePresence mode="wait">
                         <motion.div
@@ -119,24 +183,8 @@ export default function ProjectsSection() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: fadeDuration, ease: fadeEase }}
-                            onAnimationComplete={() => setIsAnimating(false)}
                             className="space-y-4"
                         >
-                            {project.image ? (
-                                <Image
-                                    src={project.image}
-                                    alt={project.name}
-                                    width={1200}
-                                    height={600}
-                                    className={`max-w-[500px] mx-auto w-full object-cover${project.available ? "" : " opacity-30 blur-[6px]"}`}
-                                />
-                            ) : (
-                                <div
-                                    className="min-h-[300px] w-full mb-4"
-                                    aria-hidden
-                                />
-                            )}
-
                             <FadeIn>
                                 <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl mt-10">
                                     {
@@ -158,7 +206,6 @@ export default function ProjectsSection() {
                                     }
                                 </h3>
                             </FadeIn>
-
 
                             {project.highlights && project.highlights.length > 0 && (
                                 <ul className="list-disc space-y-4 pl-4">

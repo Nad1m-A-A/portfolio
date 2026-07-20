@@ -17,7 +17,7 @@ export default function HeroSection() {
         <HeroPerspectiveGrid />
         <FadeIn duration={0.8} delay={0.12} trigger="mount">
           <h1 className="relative z-10 font-medium text-[clamp(2.25rem,5vw,3.75rem)]">
-            Software Engineer
+            Fullstack Developer
           </h1>
         </FadeIn>
         <div className="relative z-10 flex flex-col md:flex-row items-start justify-center gap-2 whitespace-nowrap">

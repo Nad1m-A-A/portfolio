@@ -56,7 +56,7 @@ const list: AboutItem[] = [
     id: "systems",
     question: "What kind of systems have you shipped?",
     kind: "text",
-    body: "Full end-to-end platforms that run real businesses — multi-tenant ERPs spanning inventory, HR, production, and order tracking, a unified dashboard that consolidates separate systems behind one authenticated surface, and a high-throughput POS with native hardware integration. I own the whole stack, from database schema and server APIs to the interface people use every day.",
+    body: "Full end-to-end platforms that run real businesses. Multi-tenant ERPs spanning inventory, HR, production, and order tracking, a unified dashboard that consolidates separate systems behind one authenticated surface, and a high-throughput POS with native hardware integration. I own the whole stack, from database schema and server APIs to the interface people use every day.",
   },
   {
     id: "reliability",
@@ -68,7 +68,7 @@ const list: AboutItem[] = [
     id: "next",
     question: "Where are you headed next?",
     kind: "text",
-    body: "Toward larger, more resilient SaaS systems — going deeper on distributed infrastructure, observability, and secure networking so the products I build scale cleanly from the first customer to thousands.",
+    body: "Toward larger, more resilient SaaS systems, going deeper on distributed infrastructure, observability, and secure networking so the products I build scale cleanly from the first customer to thousands.",
   },
 ];
 

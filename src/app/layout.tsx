@@ -7,11 +7,11 @@ import { appFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: {
-    default: "Nadim Alaa, Software Engineer Specialized in Full Stack ERP Development.",
+    default: "Nadim Alaa, Fullstack Developer",
     template: "%s | Nadim Alaa",
   },
   description:
-    "Nadim Alaa, Software Engineer Specialized in Full Stack ERP Development.",
+    "Nadim Alaa, Fullstack Web Developer Specialized in ERP Development.",
 };
 
 export default function RootLayout({
