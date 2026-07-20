@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { LuChevronLeft, LuChevronRight, LuExternalLink } from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight, LuExternalLink, LuLoaderCircle } from "react-icons/lu";
 import FadeIn from "@/components/ui/fade-in";
 import SectionTitle from "@/components/ui/section-title";
 
@@ -57,7 +57,7 @@ const projects: Project[] = [
         ],
         url: "https://carnemedia.ae/en",
         repo: null,
-        image: "/carne-mockup-removebg-preview.png",
+        image: "/carne-mockup.png",
         available: true,
     },
     {
@@ -77,14 +77,25 @@ const projects: Project[] = [
 export default function ProjectsSection() {
     const [active, setActive] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
+    const [isImageLoading, setIsImageLoading] = useState(true);
 
     const project = projects[active];
     const showArrows = projects.length > 1;
 
     const goTo = (index: number) => {
         if (isAnimating || index === active) return;
-        setIsAnimating(true);
+
+        const next = projects[index];
         setActive(index);
+
+        if (!next.image) {
+            setIsImageLoading(false);
+            setIsAnimating(false);
+            return;
+        }
+
+        setIsImageLoading(true);
+        setIsAnimating(true);
     };
 
     const goPrev = () => {
@@ -103,28 +114,43 @@ export default function ProjectsSection() {
                 <FadeIn className="mt-10 space-y-4">
                     <div className="flex items-center gap-3">
                         <div className="max-w-125 w-full -ml-8">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={active}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: fadeDuration, ease: fadeEase }}
-                                    onAnimationComplete={() => setIsAnimating(false)}
-                                >
-                                    {project.image ? (
-                                        <Image
-                                            src={project.image}
-                                            alt={project.name}
-                                            width={1200}
-                                            height={600}
-                                            className={`w-full object-cover${project.available ? "" : " opacity-30 blur-[6px]"}`}
+                            <div className="relative aspect-3/2 w-full">
+                                {isImageLoading && (
+                                    <div
+                                        className="absolute inset-0 z-10 flex items-center justify-center"
+                                        aria-hidden
+                                    >
+                                        <LuLoaderCircle
+                                            className="size-7 animate-spin text-accent"
+                                            aria-hidden
                                         />
-                                    ) : (
-                                        <div className="min-h-75 w-full" aria-hidden />
-                                    )}
-                                </motion.div>
-                            </AnimatePresence>
+                                    </div>
+                                )}
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={active}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: isImageLoading ? 0 : 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: fadeDuration, ease: fadeEase }}
+                                        className="absolute inset-0"
+                                    >
+                                        {project.image ? (
+                                            <Image
+                                                src={project.image}
+                                                alt={project.name}
+                                                fill
+                                                sizes="500px"
+                                                onLoad={() => {
+                                                    setIsImageLoading(false);
+                                                    setIsAnimating(false);
+                                                }}
+                                                className={`object-cover${project.available ? "" : " opacity-30 blur-[6px]"}`}
+                                            />
+                                        ) : null}
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
 
                             {showArrows && (
                                 <div
