@@ -167,7 +167,7 @@ export default function ProjectsSection() {
                                             aria-selected={index === active}
                                             disabled={isAnimating}
                                             onClick={() => goTo(index)}
-                                            className={`h-0.5 flex-1 cursor-pointer transition-colors disabled:cursor-not-allowed ${index === active
+                                            className={`h-0.5 flex-1 cursor-pointer transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${index === active
                                                 ? "bg-accent"
                                                 : "bg-accent/25 hover:bg-accent/50"
                                                 }`}
