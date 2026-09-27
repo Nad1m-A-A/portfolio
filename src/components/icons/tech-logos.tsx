@@ -4,7 +4,9 @@ import {
   SiDocker,
   SiGit,
   SiInertia,
+  SiJsonwebtokens,
   SiLaravel,
+  SiNestjs,
   SiNextdotjs,
   SiReact,
   SiTypescript,
@@ -42,4 +44,12 @@ export function GitLogo(props: LogoProps) {
 
 export function CicdLogo(props: LogoProps) {
   return <LuInfinity aria-label="CI/CD" color="currentColor" {...props} />;
+}
+
+export function NestjsLogo(props: LogoProps) {
+  return <SiNestjs aria-label="NestJS" color="#E0234E" {...props} />;
+}
+
+export function JwtLogo(props: LogoProps) {
+  return <SiJsonwebtokens aria-label="JWT" color="currentColor" {...props} />;
 }

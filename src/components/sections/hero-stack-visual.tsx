@@ -1,23 +1,23 @@
 import {
   CicdLogo,
   DockerLogo,
-  GitLogo,
   InertiaLogo,
+  JwtLogo,
   LaravelLogo,
+  NestjsLogo,
   NextjsLogo,
-  ReactLogo,
   TypescriptLogo,
 } from "@/components/icons/tech-logos";
 import FadeIn from "@/components/ui/fade-in";
 
 const stackItems = [
-  { label: "React", Logo: ReactLogo },
   { label: "Next.js", Logo: NextjsLogo },
   { label: "TypeScript", Logo: TypescriptLogo },
   { label: "Laravel", Logo: LaravelLogo },
   { label: "Inertia.js", Logo: InertiaLogo },
+  { label: "NestJS", Logo: NestjsLogo },
+  { label: "JWT", Logo: JwtLogo },
   { label: "Docker", Logo: DockerLogo },
-  { label: "Git", Logo: GitLogo },
   { label: "CI/CD", Logo: CicdLogo },
 ] as const;
 
